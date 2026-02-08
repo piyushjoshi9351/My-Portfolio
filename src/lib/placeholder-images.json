@@ -1,3 +1,28 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "project-1",
+      "description": "A web application for project management.",
+      "imageUrl": "https://images.unsplash.com/photo-1510906594845-bc082582c8cc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx0ZWNobm9sb2d5JTIwYWJzdHJhY3R8ZW58MHx8fHwxNzcwNTU5MTkwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "technology abstract"
+    },
+    {
+      "id": "project-2",
+      "description": "An e-commerce platform for selling digital goods.",
+      "imageUrl": "https://images.unsplash.com/photo-1605902711834-8b11c3e3ef2f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxzaG9wcGluZyUyMG9ubGluZXxlbnwwfHx8fDE3NzA0NzE1NDZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "shopping online"
+    },
+    {
+      "id": "project-3",
+      "description": "A mobile app for tracking fitness goals.",
+      "imageUrl": "https://images.unsplash.com/photo-1694097239337-3dd705e63041?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Zml0bmVzcyUyMGhlYWx0aHxlbnwwfHx8fDE3NzA0Njg5NzV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "fitness health"
+    },
+    {
+      "id": "project-4",
+      "description": "A data visualization dashboard for analytics.",
+      "imageUrl": "https://images.unsplash.com/photo-1767424412548-1a1ac7f4b9bc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8ZGF0YSUyMGNoYXJ0fGVufDB8fHx8MTc3MDUyOTI2MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "data chart"
+    }
+  ]
 }
