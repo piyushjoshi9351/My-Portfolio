@@ -46,7 +46,7 @@ export default function HeroSection() {
           >
             Hi, I'm Piyush Joshi —
             <br />
-            <span className="text-primary">Full Stack Developer</span>
+            <span className="text-primary">Full Stack Developer & AI/ML Engineer</span>
           </h1>
           <p
             ref={paragraphRef}
