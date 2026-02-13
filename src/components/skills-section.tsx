@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge";
 
 export default function SkillsSection() {
   return (
-    <section id="skills" className="bg-card">
+    <section id="skills" className="bg-card animate-fade-in-up" style={{ animationDelay: "0.7s" }}>
       <div className="container">
         <div className="space-y-4 text-center mb-12">
           <h2 className="font-headline text-3xl font-bold tracking-tighter text-primary sm:text-4xl md:text-5xl">
@@ -15,8 +15,12 @@ export default function SkillsSection() {
           </p>
         </div>
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {skillsData.map((category) => (
-            <Card key={category.category} className="flex flex-col transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+          {skillsData.map((category, index) => (
+            <Card 
+              key={category.category} 
+              className="flex flex-col transition-all duration-300 hover:shadow-xl hover:-translate-y-1 animate-zoom-in"
+              style={{ animationDelay: `${index * 100 + 800}ms` }}
+            >
               <CardHeader>
                 <CardTitle className="text-accent">{category.category}</CardTitle>
               </CardHeader>

@@ -13,7 +13,7 @@ export default function ProjectsSection() {
   };
 
   return (
-    <section id="projects">
+    <section id="projects" className="animate-fade-in-up" style={{ animationDelay: "0.8s" }}>
       <div className="container">
         <div className="space-y-4 text-center mb-12">
           <h2 className="font-headline text-3xl font-bold tracking-tighter text-primary sm:text-4xl md:text-5xl">
@@ -24,10 +24,14 @@ export default function ProjectsSection() {
           </p>
         </div>
         <div className="grid gap-8 md:grid-cols-2">
-          {projectsData.map((project) => {
+          {projectsData.map((project, index) => {
             const imageData = getImageData(project.imagePlaceholderId);
             return (
-              <Card key={project.id} className="flex flex-col overflow-hidden transition-all duration-300 hover:shadow-xl">
+              <Card 
+                key={project.id} 
+                className="flex flex-col overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 animate-zoom-in"
+                style={{ animationDelay: `${index * 100 + 900}ms` }}
+                >
                 <CardHeader>
                   {imageData && (
                     <div className="relative aspect-video w-full overflow-hidden rounded-t-lg">

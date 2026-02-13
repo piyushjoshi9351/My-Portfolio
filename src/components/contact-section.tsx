@@ -59,7 +59,7 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="bg-card">
+    <section id="contact" className="bg-card animate-fade-in-up" style={{ animationDelay: "1.0s" }}>
       <div className="container">
         <div className="space-y-4 text-center mb-12">
           <h2 className="font-headline text-3xl font-bold tracking-tighter text-primary sm:text-4xl md:text-5xl">
@@ -69,7 +69,7 @@ export default function ContactSection() {
             Have a project in mind or just want to say hello? I'd love to hear from you.
           </p>
         </div>
-        <div className="mx-auto max-w-xl">
+        <div className="mx-auto max-w-xl animate-zoom-in" style={{ animationDelay: "1.1s" }}>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
               <FormField

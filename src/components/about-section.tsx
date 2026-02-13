@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default function AboutSection() {
   return (
-    <section id="about">
+    <section id="about" className="animate-fade-in-up" style={{ animationDelay: "0.6s" }}>
       <div className="container">
         <div className="mx-auto max-w-4xl space-y-8">
           <div className="space-y-4 text-center">
@@ -14,7 +14,7 @@ export default function AboutSection() {
               A little bit about my journey and what drives me.
             </p>
           </div>
-          <Card className="shadow-lg">
+          <Card className="shadow-lg animate-zoom-in" style={{ animationDelay: "0.8s" }}>
             <CardHeader>
                 <CardTitle className="text-accent">My Story</CardTitle>
             </CardHeader>
