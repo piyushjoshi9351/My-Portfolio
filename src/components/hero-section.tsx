@@ -86,7 +86,7 @@ export default function HeroSection() {
             className="mx-auto max-w-[700px] text-lg text-muted-foreground md:text-xl font-code h-8"
             style={{ opacity: 0 }}
           >
-             I am a <span className="text-white font-semibold border-r-2 border-primary animate-pulse">{text}</span>
+             I am a <span className="text-primary font-semibold border-r-2 border-primary animate-pulse">{text}</span>
           </p>
           <div
             ref={buttonRef}
