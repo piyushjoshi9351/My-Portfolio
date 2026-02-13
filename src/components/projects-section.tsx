@@ -11,6 +11,7 @@ import { Github, ArrowUpRight } from "lucide-react";
 
 const ProjectCard = ({ project, imageData }: { project: typeof projectsData[0]; imageData?: any }) => {
   const cardRef = React.useRef<HTMLDivElement>(null);
+  const [isHovered, setIsHovered] = React.useState(false);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!cardRef.current) return;
@@ -30,48 +31,52 @@ const ProjectCard = ({ project, imageData }: { project: typeof projectsData[0]; 
     if (!cardRef.current) return;
     cardRef.current.style.setProperty("--rotate-x", "0deg");
     cardRef.current.style.setProperty("--rotate-y", "0deg");
+    setIsHovered(false);
   };
 
   return (
     <div className="project-card-container">
       <Card
         ref={cardRef}
-        className="project-card glass-card flex flex-col overflow-hidden transition-all duration-300"
+        className="project-card glass-card flex flex-col overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/20 border border-purple-500/20 hover:border-purple-500/50"
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
+        onMouseEnter={() => setIsHovered(true)}
       >
-        <CardHeader className="p-0">
+        <CardHeader className="p-0 relative overflow-hidden">
           {imageData && (
-            <div className="relative aspect-video w-full overflow-hidden">
+            <div className="relative aspect-video w-full overflow-hidden bg-gradient-to-br from-purple-500/10 to-cyan-500/10">
               <Image
                 src={imageData.imageUrl}
                 alt={imageData.description}
                 fill
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                className="object-cover transition-transform duration-500 hover:scale-110"
                 data-ai-hint={imageData.imageHint}
               />
+              {/* Overlay */}
+              <div className={`absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'}`} />
             </div>
           )}
         </CardHeader>
-        <div className="p-6 flex flex-col flex-grow">
-          <CardTitle className="pt-4 text-2xl">{project.title}</CardTitle>
+        <div className="p-6 flex flex-col flex-grow bg-gradient-to-b from-secondary/50 to-secondary/20">
+          <CardTitle className="pt-4 text-2xl bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">{project.title}</CardTitle>
           <CardDescription className="mt-2 text-muted-foreground">{project.description}</CardDescription>
-          <CardContent className="flex-grow pt-6">
+          <CardContent className="flex-grow pt-6 px-0">
             <div className="flex flex-wrap gap-2">
               {project.techStack.map((tech) => (
-                <Badge key={tech} variant="secondary">
+                <Badge key={tech} variant="secondary" className="bg-purple-500/20 text-purple-200 border border-purple-500/30 hover:bg-purple-500/30 transition-colors">
                   {tech}
                 </Badge>
               ))}
             </div>
           </CardContent>
           <CardFooter className="flex justify-between items-center p-0 pt-6">
-            <Button asChild variant="link" className="p-0 h-auto text-primary">
+            <Button asChild variant="link" className="p-0 h-auto text-primary hover:text-cyan-400 transition-colors">
               <Link href={project.liveDemoUrl}>
                 Live Demo <ArrowUpRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
-            <Button asChild variant="ghost" size="icon">
+            <Button asChild variant="ghost" size="icon" className="hover:text-purple-400 transition-colors">
               <Link href={project.githubRepoUrl}>
                 <Github className="h-5 w-5" />
               </Link>

@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { gsap } from "gsap";
 import { ArrowDown, Github, Linkedin } from "lucide-react";
 import { LeetCodeIcon, DiscordIcon } from "@/components/icons";
+import Robot3D from "@/components/robot-3d";
 
 export default function HeroSection() {
   const headingRef = useRef<HTMLHeadingElement>(null);
@@ -82,68 +83,75 @@ export default function HeroSection() {
 
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <div className="container text-center">
-        <div className="space-y-12">
-          <div className="space-y-8">
-            <h1
-              ref={headingRef}
-              className="font-headline text-5xl font-extrabold tracking-tighter text-foreground sm:text-6xl md:text-7xl lg:text-8xl"
-              style={{ opacity: 0 }}
-            >
-              Hi, I'm Piyush Joshi
-            </h1>
-            <p 
-              ref={roleRef}
-              className="text-2xl font-bold text-muted-foreground md:text-3xl lg:text-4xl mt-4 min-h-[40px] md:min-h-[50px]"
-              style={{ opacity: 0 }}
-            >
-              I'm an <span className="text-primary">{text}</span><span className="animate-pulse">|</span>
-            </p>
-            <p
-              ref={paragraphRef}
-              className="mx-auto max-w-[700px] text-lg text-muted-foreground md:text-xl"
-              style={{ opacity: 0 }}
-            >
-               I'm a passionate developer with a strong interest in Artificial Intelligence and Machine Learning, currently pursuing my B.Tech in Information Technology.
-            </p>
-            <div
-              ref={buttonRef}
-              className="flex flex-col sm:flex-row items-center justify-center gap-4"
-              style={{ opacity: 0 }}
-            >
-              <Button asChild size="lg" className="text-lg font-bold px-8 py-6 bg-primary text-primary-foreground transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/50">
-                <Link href="#contact">Get In Touch</Link>
-              </Button>
-              <Button asChild size="lg" variant="outline" className="text-lg font-bold px-8 py-6 border-2 border-primary text-primary transition-all duration-300 hover:scale-105 hover:bg-primary/10">
-                <a href="/piyush_joshi_cv.pdf" download>
-                  Download CV <ArrowDown className="ml-2 h-5 w-5" />
-                </a>
-              </Button>
+      <div className="container text-center md:text-left">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+          {/* Text Content */}
+          <div className="space-y-12">
+            <div className="space-y-8">
+              <h1
+                ref={headingRef}
+                className="font-headline text-5xl font-extrabold tracking-tighter text-foreground sm:text-6xl md:text-6xl lg:text-7xl"
+                style={{ opacity: 0 }}
+              >
+                Hi, I'm Piyush Joshi
+              </h1>
+              <p 
+                ref={roleRef}
+                className="text-2xl font-bold text-muted-foreground md:text-3xl lg:text-4xl mt-4 min-h-[40px] md:min-h-[50px]"
+                style={{ opacity: 0 }}
+              >
+                I'm an <span className="text-primary">{text}</span><span className="animate-pulse">|</span>
+              </p>
+              <p
+                ref={paragraphRef}
+                className="max-w-[600px] text-lg text-muted-foreground md:text-xl"
+                style={{ opacity: 0 }}
+              >
+                 I'm a passionate developer with a strong interest in Artificial Intelligence and Machine Learning, currently pursuing my B.Tech in Information Technology.
+              </p>
+              <div
+                ref={buttonRef}
+                className="flex flex-col sm:flex-row gap-4"
+                style={{ opacity: 0 }}
+              >
+                <Button asChild size="lg" className="text-lg font-bold px-8 py-6 bg-primary text-primary-foreground transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/50">
+                  <Link href="#contact">Get In Touch</Link>
+                </Button>
+                <Button asChild size="lg" variant="outline" className="text-lg font-bold px-8 py-6 border-2 border-primary text-primary transition-all duration-300 hover:scale-105 hover:bg-primary/10">
+                  <a href="/piyush_joshi_cv.pdf" download>
+                    Download CV <ArrowDown className="ml-2 h-5 w-5" />
+                  </a>
+                </Button>
+              </div>
             </div>
-          </div>
-          
-          <div
-            ref={socialsRef}
-            className="flex items-center justify-center gap-4"
-            style={{ opacity: 0 }}
-          >
-            <span className="text-lg text-muted-foreground">Follow me:</span>
-            <div className="flex items-center gap-4">
-              <a href="#" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-muted-foreground transition-colors hover:text-primary">
-                <Github className="h-6 w-6" />
-              </a>
-              <a href="#" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-muted-foreground transition-colors hover:text-primary">
-                <Linkedin className="h-6 w-6" />
-              </a>
-              <a href="#" target="_blank" rel="noopener noreferrer" aria-label="LeetCode" className="text-muted-foreground transition-colors hover:text-primary">
-                <LeetCodeIcon className="h-6 w-6" />
-              </a>
-              <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Discord" className="text-muted-foreground transition-colors hover:text-primary">
-                <DiscordIcon className="h-6 w-6" />
-              </a>
+            
+            <div
+              ref={socialsRef}
+              className="flex items-center gap-4"
+              style={{ opacity: 0 }}
+            >
+              <span className="text-lg text-muted-foreground">Follow me:</span>
+              <div className="flex items-center gap-4">
+                <a href="#" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-muted-foreground transition-colors hover:text-primary">
+                  <Github className="h-6 w-6" />
+                </a>
+                <a href="#" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-muted-foreground transition-colors hover:text-primary">
+                  <Linkedin className="h-6 w-6" />
+                </a>
+                <a href="#" target="_blank" rel="noopener noreferrer" aria-label="LeetCode" className="text-muted-foreground transition-colors hover:text-primary">
+                  <LeetCodeIcon className="h-6 w-6" />
+                </a>
+                <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Discord" className="text-muted-foreground transition-colors hover:text-primary">
+                  <DiscordIcon className="h-6 w-6" />
+                </a>
+              </div>
             </div>
           </div>
 
+          {/* 3D Robot Animation */}
+          <div className="hidden md:block h-[500px] relative">
+            <Robot3D />
+          </div>
         </div>
       </div>
     </section>

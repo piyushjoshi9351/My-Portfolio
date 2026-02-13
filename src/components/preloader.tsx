@@ -5,6 +5,7 @@ import { Wifi, Cog, RefreshCw, Zap } from 'lucide-react';
 
 export default function Preloader() {
   const [loadingText, setLoadingText] = useState('INITIATING...');
+  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
     const texts = ['LOADING UI...', 'SYSTEMS READY...', 'WELCOME'];
@@ -23,8 +24,30 @@ export default function Preloader() {
     };
   }, []);
 
+  useEffect(() => {
+    const progressInterval = setInterval(() => {
+      setProgress((prev) => {
+        if (prev >= 100) {
+          clearInterval(progressInterval);
+          return 100;
+        }
+        return prev + Math.random() * 30;
+      });
+    }, 300);
+
+    return () => clearInterval(progressInterval);
+  }, []);
+
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center bg-[#111118] animate-fade-in-up p-4">
+      {/* Progress Bar */}
+      <div className="absolute top-0 left-0 right-0 h-1 bg-secondary/20">
+        <div
+          className="h-full bg-gradient-to-r from-purple-500 via-cyan-500 to-purple-500 transition-all duration-500"
+          style={{ width: `${Math.min(progress, 100)}%` }}
+        />
+      </div>
+
       <div className="w-full max-w-4xl mx-auto">
         <div className="grid md:grid-cols-2 gap-8 items-center">
           

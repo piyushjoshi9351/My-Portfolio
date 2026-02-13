@@ -44,7 +44,10 @@ export default function ContactSection() {
   const labelClass = "absolute left-2 top-3 text-muted-foreground transition-all duration-300 pointer-events-none";
 
   return (
-    <section id="contact" className="animate-fade-in-up">
+    <section id="contact" className="animate-fade-in-up relative">
+      {/* Background effect */}
+      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-transparent via-purple-500/5 to-transparent" />
+      
       <div className="container">
         <div className="space-y-4 text-center mb-16">
           <h2 className="font-headline text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl md:text-6xl">
@@ -55,7 +58,7 @@ export default function ContactSection() {
           </p>
         </div>
         <div className="mx-auto max-w-2xl animate-zoom-in">
-          <form onSubmit={handleSubmit(onSubmit)} className="space-y-12">
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-12 p-8 rounded-xl bg-gradient-to-br from-purple-500/10 to-cyan-500/10 border border-purple-500/20 backdrop-blur-sm hover:border-purple-500/50 transition-all duration-300">
             <div className="relative">
               <input
                 id="name"
@@ -84,7 +87,7 @@ export default function ContactSection() {
                 id="message"
                 {...register("message")}
                 rows={4}
-                className={cn(inputClass, "peer")}
+                className={cn(inputClass, "peer resize-none")}
                 placeholder=" "
               />
               <label htmlFor="message" className={cn(labelClass, "peer-placeholder-shown:top-3 peer-focus:-top-5 peer-focus:text-sm peer-focus:text-primary peer-[:not(:placeholder-shown)]:-top-5 peer-[:not(:placeholder-shown)]:text-sm peer-[:not(:placeholder-shown)]:text-primary")}>Message</label>
@@ -93,7 +96,7 @@ export default function ContactSection() {
             
             <Button
               type="submit"
-              className="w-full text-lg font-bold py-6 bg-gradient-to-r from-primary to-purple-500 hover:from-primary/90 hover:to-purple-500/90 transition-all duration-300"
+              className="w-full text-lg font-bold py-6 bg-gradient-to-r from-purple-600 to-cyan-600 hover:from-purple-700 hover:to-cyan-700 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/50 hover:scale-105"
               disabled={isSubmitting}
             >
               {isSubmitting && <Loader2 className="mr-2 h-5 w-5 animate-spin" />}
