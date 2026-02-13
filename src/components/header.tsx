@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Github, Linkedin, Menu } from "lucide-react";
-
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { LeetCodeIcon } from "@/components/icons";
@@ -33,40 +32,40 @@ export default function Header() {
       className={cn(
         "sticky top-0 z-50 w-full transition-all duration-300 animate-fade-in-down",
         isScrolled
-          ? "border-b bg-background/80 backdrop-blur-sm"
+          ? "border-b border-white/10 bg-background/80 backdrop-blur-sm"
           : "bg-transparent"
       )}
     >
-      <div className="container flex h-16 items-center">
+      <div className="container flex h-20 items-center">
         <Link href="/" className="mr-6 flex items-center space-x-2">
-          <span className="font-headline text-lg font-bold text-primary">
+          <span className="font-headline text-2xl font-bold text-foreground">
             Piyush Joshi
           </span>
         </Link>
-        <nav className="hidden items-center space-x-6 text-sm font-medium md:flex">
+        <nav className="hidden items-center space-x-8 text-base font-medium md:flex">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="transition-colors hover:text-accent"
+              className="text-muted-foreground transition-colors hover:text-primary"
             >
               {link.label}
             </Link>
           ))}
         </nav>
-        <div className="flex flex-1 items-center justify-end space-x-4">
+        <div className="flex flex-1 items-center justify-end space-x-2">
           <Button variant="ghost" size="icon" asChild>
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-muted-foreground transition-colors hover:text-primary">
               <Github className="h-5 w-5" />
             </a>
           </Button>
           <Button variant="ghost" size="icon" asChild>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-muted-foreground transition-colors hover:text-primary">
               <Linkedin className="h-5 w-5" />
             </a>
           </Button>
           <Button variant="ghost" size="icon" asChild>
-            <a href="https://leetcode.com" target="_blank" rel="noopener noreferrer" aria-label="LeetCode">
+            <a href="https://leetcode.com" target="_blank" rel="noopener noreferrer" aria-label="LeetCode" className="text-muted-foreground transition-colors hover:text-primary">
               <LeetCodeIcon className="h-5 w-5" />
             </a>
           </Button>
@@ -78,16 +77,16 @@ export default function Header() {
                   <span className="sr-only">Toggle navigation menu</span>
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right">
+              <SheetContent side="right" className="glass-card">
                 <nav className="grid gap-6 text-lg font-medium mt-8">
-                  <Link href="/" className="flex items-center gap-2 text-lg font-semibold">
-                    <span className="font-headline text-lg font-bold text-primary">Piyush Joshi</span>
+                  <Link href="/" className="flex items-center gap-2 text-xl font-bold">
+                    <span>Piyush Joshi</span>
                   </Link>
                   {navLinks.map((link) => (
                     <Link
                       key={link.href}
                       href={link.href}
-                      className="text-muted-foreground transition-colors hover:text-accent"
+                      className="text-muted-foreground transition-colors hover:text-primary"
                     >
                       {link.label}
                     </Link>

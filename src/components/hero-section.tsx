@@ -1,42 +1,74 @@
+"use client";
+
+import { useEffect, useRef } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { gsap } from "gsap";
 
 export default function HeroSection() {
+  const headingRef = useRef<HTMLHeadingElement>(null);
+  const paragraphRef = useRef<HTMLParagraphElement>(null);
+  const buttonRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+    
+    if (headingRef.current) {
+      const chars = headingRef.current.querySelectorAll("span");
+      tl.fromTo(
+        chars,
+        { y: 50, opacity: 0 },
+        { y: 0, opacity: 1, stagger: 0.05, duration: 1 }
+      );
+    }
+
+    tl.fromTo(
+      paragraphRef.current,
+      { y: 20, opacity: 0 },
+      { y: 0, opacity: 1, duration: 1 },
+      "-=0.5"
+    );
+
+    tl.fromTo(
+      buttonRef.current,
+      { y: 20, opacity: 0 },
+      { y: 0, opacity: 1, duration: 1 },
+      "-=0.7"
+    );
+  }, []);
+
+  const name = "Piyush Joshi";
+
   return (
-    <section id="hero" className="bg-card overflow-hidden">
-      <div className="container grid grid-cols-1 items-center gap-8 text-center md:grid-cols-2 md:text-left">
-        <div className="space-y-6">
+    <section id="hero" className="min-h-[80vh] flex items-center">
+      <div className="container text-center">
+        <div className="space-y-8">
           <h1
-            className="font-headline text-4xl font-bold tracking-tighter text-primary sm:text-5xl md:text-6xl lg:text-7xl animate-fade-in-down"
-            style={{ animationDelay: "0.2s" }}
+            ref={headingRef}
+            className="font-headline text-6xl font-extrabold tracking-tighter text-foreground sm:text-7xl md:text-8xl lg:text-9xl"
           >
-            Piyush Joshi
+            {name.split("").map((char, index) => (
+              <span key={index} className="inline-block" style={{ opacity: 0 }}>
+                {char === " " ? "\u00A0" : char}
+              </span>
+            ))}
           </h1>
           <p
-            className="max-w-[600px] text-lg text-muted-foreground md:text-xl animate-fade-in-down"
-            style={{ animationDelay: "0.3s" }}
+            ref={paragraphRef}
+            className="mx-auto max-w-[700px] text-lg text-muted-foreground md:text-xl"
+            style={{ opacity: 0 }}
           >
             A creative and driven Full Stack Developer building modern, responsive, and user-friendly web applications.
           </p>
           <div
-            className="flex flex-col gap-4 sm:flex-row justify-center md:justify-start animate-fade-in-up"
-            style={{ animationDelay: "0.4s" }}
+            ref={buttonRef}
+            className="flex justify-center"
+            style={{ opacity: 0 }}
           >
-            <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
-              <Link href="#projects">View Projects</Link>
-            </Button>
-            <Button asChild variant="outline" size="lg" className="border-accent text-accent hover:bg-accent hover:text-accent-foreground">
-              <Link href="#contact">Contact Me</Link>
+            <Button asChild size="lg" className="text-lg font-bold px-10 py-6 bg-gradient-to-r from-primary to-purple-500 hover:from-primary/90 hover:to-purple-500/90 text-primary-foreground transition-transform duration-300 hover:scale-105">
+              <Link href="#contact">Get In Touch</Link>
             </Button>
           </div>
-        </div>
-        <div className="relative flex items-center justify-center animate-zoom-in" style={{ animationDelay: "0.5s" }}>
-            {/* You can add an image or an animation here */}
-            <div className="w-72 h-72 rounded-full bg-primary/10 flex items-center justify-center animate-pulse">
-                <div className="w-60 h-60 rounded-full bg-primary/20 flex items-center justify-center">
-                    <div className="w-48 h-48 rounded-full bg-primary/30"></div>
-                </div>
-            </div>
         </div>
       </div>
     </section>

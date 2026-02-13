@@ -5,16 +5,37 @@ export const aboutData = {
 
 export const skillsData = [
   {
-    category: "Development",
-    skills: ["React.js", "Next.js", "Node.js", "Express.js", "Python", "TypeScript", "JavaScript", "HTML5", "CSS3"],
+    category: "Frontend",
+    skills: [
+      { name: "React.js", level: 95 },
+      { name: "Next.js", level: 90 },
+      { name: "TypeScript", level: 90 },
+      { name: "JavaScript", level: 95 },
+      { name: "HTML5 & CSS3", level: 98 },
+      { name: "Tailwind CSS", level: 95 },
+    ],
   },
   {
-    category: "Databases",
-    skills: ["MongoDB", "PostgreSQL", "MySQL", "Firebase Firestore"],
+    category: "Backend",
+    skills: [
+      { name: "Node.js", level: 90 },
+      { name: "Express.js", level: 85 },
+      { name: "Python", level: 80 },
+      { name: "Firebase", level: 85 },
+      { name: "PostgreSQL", level: 80 },
+      { name: "MongoDB", level: 75 },
+    ],
   },
   {
-    category: "Platforms",
-    skills: ["Docker", "AWS", "Google Cloud", "Vercel", "Git", "GitHub"],
+    category: "Platforms & Tools",
+    skills: [
+      { name: "Docker", level: 75 },
+      { name: "AWS", level: 70 },
+      { name: "Google Cloud", level: 65 },
+      { name: "Vercel", level: 90 },
+      { name: "Git & GitHub", level: 95 },
+      { name: "GSAP", level: 80 },
+    ],
   },
 ];
 
