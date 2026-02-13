@@ -26,7 +26,7 @@ export default function Header() {
     const handleScroll = () => {
       // Logic for active link
       const sections = navLinks.map(link => document.querySelector(link.href));
-      const scrollPosition = window.scrollY + 100; // Adjusted offset
+      const scrollPosition = window.scrollY + 80; // Adjusted offset
 
       for (const section of sections) {
         if (section && section instanceof HTMLElement) {
@@ -77,7 +77,7 @@ export default function Header() {
     <header
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300 animate-fade-in-down',
-        isScrolled ? 'h-20 bg-card/60 backdrop-blur-xl shadow-lg border-b border-white/10' : 'h-24 bg-transparent'
+        isScrolled ? 'h-16 bg-card/60 backdrop-blur-xl shadow-lg border-b border-white/10' : 'h-20 bg-transparent'
       )}
     >
       <div className="container flex h-full items-center justify-between">
