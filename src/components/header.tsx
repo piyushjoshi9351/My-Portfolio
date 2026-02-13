@@ -82,7 +82,7 @@ export default function Header() {
     >
       <div className="container flex h-full items-center justify-between">
         <Link href="#hero" onClick={() => setActiveLink('#hero')} className="text-2xl font-bold font-headline transition-colors hover:text-primary">
-          Piyush Joshi
+          Portfolio
         </Link>
 
         {/* Desktop Navigation */}
