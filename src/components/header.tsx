@@ -1,26 +1,32 @@
 'use client';
 
 import Link from 'next/link';
-import { Home, User, FolderKanban, Mail, Menu } from 'lucide-react';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { Menu } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { useState, useEffect } from 'react';
 
 const navLinks = [
-  { href: '#hero', label: 'Home', icon: <Home className="h-4 w-4" /> },
-  { href: '#about', label: 'About', icon: <User className="h-4 w-4" /> },
-  { href: '#projects', label: 'Projects', icon: <FolderKanban className="h-4 w-4" /> },
-  { href: '#contact', label: 'Contact', icon: <Mail className="h-4 w-4" /> },
+  { href: '#hero', label: 'Home' },
+  { href: '#about', label: 'About' },
+  { href: '#experience', label: 'Experience'},
+  { href: '#skills', label: 'Skills' },
+  { href: '#projects', label: 'Projects' },
+  { href: '#contact', label: 'Contact' },
 ];
 
 export default function Header() {
   const [activeLink, setActiveLink] = useState('#hero');
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
 
   useEffect(() => {
     const handleScroll = () => {
+      // Logic for active link
       const sections = navLinks.map(link => document.querySelector(link.href));
-      const scrollPosition = window.scrollY + 150;
+      const scrollPosition = window.scrollY + 100; // Adjusted offset
 
       for (const section of sections) {
         if (section && section instanceof HTMLElement) {
@@ -28,62 +34,86 @@ export default function Header() {
             if (activeLink !== `#${section.id}`) {
               setActiveLink(`#${section.id}`);
             }
-            return;
+            break; // Found the active link, no need to continue
           }
         }
       }
+      
+      // Logic for scrolled state
+      setIsScrolled(window.scrollY > 20);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
+    handleScroll(); // Initial check
     return () => window.removeEventListener('scroll', handleScroll);
   }, [activeLink]);
 
-  const NavItems = () => (
+
+  const NavItems = ({ isMobile = false }: { isMobile?: boolean }) => (
     <>
       {navLinks.map((link) => (
         <Link
           key={link.href}
           href={link.href}
-          onClick={() => setActiveLink(link.href)}
+          onClick={() => {
+            setActiveLink(link.href);
+            if (isMobile) setIsMenuOpen(false);
+          }}
           data-active={activeLink === link.href}
           className={cn(
-            "flex items-center gap-2 rounded-full px-4 py-2 text-muted-foreground transition-all duration-300 hover:text-foreground",
-            "data-[active=true]:bg-primary/90 data-[active=true]:text-primary-foreground data-[active=true]:shadow-lg data-[active=true]:shadow-primary/50"
+            "relative text-lg font-medium text-muted-foreground transition-colors duration-300 hover:text-primary",
+            "after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-primary after:transition-transform after:duration-300 after:content-['']",
+            "data-[active=true]:text-primary data-[active=true]:after:scale-x-100",
+             isMobile ? "py-2" : ""
           )}
         >
-          {link.icon}
-          <span className="text-sm font-medium">{link.label}</span>
+          {link.label}
         </Link>
       ))}
     </>
   );
 
   return (
-    <>
-      {/* Desktop Header */}
-      <header className="fixed top-4 left-0 right-0 z-50 hidden animate-fade-in-down justify-center md:flex">
-        <nav className="flex items-center gap-2 rounded-full border border-white/10 bg-card/60 p-2 backdrop-blur-xl">
+    <header
+      className={cn(
+        'fixed top-0 left-0 right-0 z-50 transition-all duration-300 animate-fade-in-down',
+        isScrolled ? 'h-20 bg-card/60 backdrop-blur-xl shadow-lg border-b border-white/10' : 'h-24 bg-transparent'
+      )}
+    >
+      <div className="container flex h-full items-center justify-between">
+        <Link href="#hero" onClick={() => setActiveLink('#hero')} className="text-2xl font-bold font-headline transition-colors hover:text-primary">
+          Piyush Joshi
+        </Link>
+
+        {/* Desktop Navigation */}
+        <nav className="hidden items-center gap-10 md:flex">
           <NavItems />
         </nav>
-      </header>
+        
+        <Button asChild className="hidden md:flex bg-primary text-primary-foreground transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/50">
+            <Link href="#contact">Hire Me</Link>
+        </Button>
 
-      {/* Mobile Header */}
-      <div className="fixed top-4 right-4 z-50 md:hidden animate-fade-in-down">
-        <Sheet>
-          <SheetTrigger asChild>
-            <Button size="icon" className="glass-card h-12 w-12 rounded-full">
-              <Menu className="h-6 w-6" />
-              <span className="sr-only">Toggle navigation menu</span>
-            </Button>
-          </SheetTrigger>
-          <SheetContent side="top" className="glass-card mx-auto mt-4 w-[90vw] rounded-2xl border-none">
-            <nav className="mt-8 flex flex-col items-center gap-4">
-              <NavItems />
-            </nav>
-          </SheetContent>
-        </Sheet>
+        {/* Mobile Navigation */}
+        <div className="md:hidden">
+          <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
+            <SheetTrigger asChild>
+              <Button size="icon" variant="ghost">
+                <Menu className="h-6 w-6" />
+                <span className="sr-only">Toggle navigation menu</span>
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right" className="glass-card w-[80vw] border-l-0">
+              <nav className="mt-16 flex flex-col items-center gap-8">
+                <NavItems isMobile={true} />
+                 <Button asChild className="mt-4">
+                    <Link href="#contact" onClick={() => setIsMenuOpen(false)}>Hire Me</Link>
+                </Button>
+              </nav>
+            </SheetContent>
+          </Sheet>
+        </div>
       </div>
-    </>
+    </header>
   );
 }
