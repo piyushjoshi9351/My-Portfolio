@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { gsap } from "gsap";
 import { ArrowDown, Github, Linkedin } from "lucide-react";
-import { LeetCodeIcon } from "@/components/icons";
+import { LeetCodeIcon, DiscordIcon } from "@/components/icons";
 
 export default function HeroSection() {
   const headingRef = useRef<HTMLHeadingElement>(null);
@@ -129,14 +129,17 @@ export default function HeroSection() {
           >
             <span className="text-lg text-muted-foreground">Follow me:</span>
             <div className="flex items-center gap-4">
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-muted-foreground transition-colors hover:text-primary">
+              <a href="#" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-muted-foreground transition-colors hover:text-primary">
                 <Github className="h-6 w-6" />
               </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-muted-foreground transition-colors hover:text-primary">
+              <a href="#" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-muted-foreground transition-colors hover:text-primary">
                 <Linkedin className="h-6 w-6" />
               </a>
-              <a href="https://leetcode.com" target="_blank" rel="noopener noreferrer" aria-label="LeetCode" className="text-muted-foreground transition-colors hover:text-primary">
+              <a href="#" target="_blank" rel="noopener noreferrer" aria-label="LeetCode" className="text-muted-foreground transition-colors hover:text-primary">
                 <LeetCodeIcon className="h-6 w-6" />
+              </a>
+              <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Discord" className="text-muted-foreground transition-colors hover:text-primary">
+                <DiscordIcon className="h-6 w-6" />
               </a>
             </div>
           </div>
