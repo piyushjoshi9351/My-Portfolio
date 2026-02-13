@@ -124,21 +124,24 @@ export default function HeroSection() {
           
           <div
             ref={socialsRef}
-            className="flex items-center justify-center gap-6"
+            className="flex items-center justify-center gap-4"
             style={{ opacity: 0 }}
           >
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-muted-foreground transition-colors hover:text-primary">
-              <Github className="h-7 w-7" />
-            </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-muted-foreground transition-colors hover:text-primary">
-              <Linkedin className="h-7 w-7" />
-            </a>
-            <a href="https://leetcode.com" target="_blank" rel="noopener noreferrer" aria-label="LeetCode" className="text-muted-foreground transition-colors hover:text-primary">
-              <LeetCodeIcon className="h-7 w-7" />
-            </a>
-            <a href="https://discord.com" target="_blank" rel="noopener noreferrer" aria-label="Discord" className="text-muted-foreground transition-colors hover:text-primary">
-              <DiscordIcon className="h-7 w-7" />
-            </a>
+            <span className="text-lg text-muted-foreground">Follow me:</span>
+            <div className="flex items-center gap-4">
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-muted-foreground transition-colors hover:text-primary">
+                <Github className="h-6 w-6" />
+              </a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-muted-foreground transition-colors hover:text-primary">
+                <Linkedin className="h-6 w-6" />
+              </a>
+              <a href="https://leetcode.com" target="_blank" rel="noopener noreferrer" aria-label="LeetCode" className="text-muted-foreground transition-colors hover:text-primary">
+                <LeetCodeIcon className="h-6 w-6" />
+              </a>
+              <a href="https://discord.com" target="_blank" rel="noopener noreferrer" aria-label="Discord" className="text-muted-foreground transition-colors hover:text-primary">
+                <DiscordIcon className="h-6 w-6" />
+              </a>
+            </div>
           </div>
 
         </div>
