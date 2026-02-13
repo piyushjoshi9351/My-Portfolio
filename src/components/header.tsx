@@ -19,13 +19,13 @@ export default function Header() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 w-full animate-fade-in-down border-b border-white/10 bg-background/95 backdrop-blur-sm"
+        "sticky top-0 z-50 w-full h-16 animate-fade-in-down border-b border-white/10 bg-background/95 backdrop-blur-sm"
       )}
     >
-      <div className="container flex h-16 items-center">
+      <div className="container flex h-full items-center">
         <Link href="#hero" className="mr-6 flex items-center space-x-2">
           <span className="font-headline text-2xl font-bold text-foreground">
-            My Portfolio
+            Piyush Joshi
           </span>
         </Link>
         <nav className="hidden items-center space-x-8 text-base font-medium md:flex">
@@ -66,7 +66,7 @@ export default function Header() {
               <SheetContent side="right" className="glass-card">
                 <nav className="grid gap-6 text-lg font-medium mt-8">
                   <Link href="/" className="flex items-center gap-2 text-xl font-bold">
-                    <span>My Portfolio</span>
+                    <span>Piyush Joshi</span>
                   </Link>
                   {navLinks.map((link) => (
                     <Link
