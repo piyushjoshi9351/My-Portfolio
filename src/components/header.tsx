@@ -1,6 +1,5 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Github, Linkedin, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -17,29 +16,16 @@ const navLinks = [
 ];
 
 export default function Header() {
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 w-full transition-all duration-300 animate-fade-in-down",
-        isScrolled
-          ? "border-b border-white/10 bg-background/80 backdrop-blur-sm"
-          : "bg-transparent"
+        "sticky top-0 z-50 w-full animate-fade-in-down border-b border-white/10 bg-background/95 backdrop-blur-sm"
       )}
     >
       <div className="container flex h-20 items-center">
-        <Link href="/" className="mr-6 flex items-center space-x-2">
+        <Link href="#hero" className="mr-6 flex items-center space-x-2">
           <span className="font-headline text-2xl font-bold text-foreground">
-            Piyush Joshi
+            My Portfolio
           </span>
         </Link>
         <nav className="hidden items-center space-x-8 text-base font-medium md:flex">
@@ -80,7 +66,7 @@ export default function Header() {
               <SheetContent side="right" className="glass-card">
                 <nav className="grid gap-6 text-lg font-medium mt-8">
                   <Link href="/" className="flex items-center gap-2 text-xl font-bold">
-                    <span>Piyush Joshi</span>
+                    <span>My Portfolio</span>
                   </Link>
                   {navLinks.map((link) => (
                     <Link
