@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { gsap } from "gsap";
 import { ArrowDown, Github, Linkedin } from "lucide-react";
-import { LeetCodeIcon, DiscordIcon } from "@/components/icons";
+import { LeetCodeIcon } from "@/components/icons";
 
 export default function HeroSection() {
   const headingRef = useRef<HTMLHeadingElement>(null);
@@ -14,7 +14,7 @@ export default function HeroSection() {
   const buttonRef = useRef<HTMLDivElement>(null);
   const socialsRef = useRef<HTMLDivElement>(null);
 
-  const roles = useMemo(() => ["Full Stack Developer", "AI/ML Engineer"], []);
+  const roles = useMemo(() => ["Aspiring AI/ML Engineer", "Full Stack Developer"], []);
   const [roleIndex, setRoleIndex] = useState(0);
   const [text, setText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
@@ -97,14 +97,14 @@ export default function HeroSection() {
               className="text-2xl font-bold text-muted-foreground md:text-3xl lg:text-4xl mt-4 min-h-[40px] md:min-h-[50px]"
               style={{ opacity: 0 }}
             >
-              I'm a <span className="text-primary">{text}</span><span className="animate-pulse">|</span>
+              I'm an <span className="text-primary">{text}</span><span className="animate-pulse">|</span>
             </p>
             <p
               ref={paragraphRef}
               className="mx-auto max-w-[700px] text-lg text-muted-foreground md:text-xl"
               style={{ opacity: 0 }}
             >
-               I craft modern, responsive web apps with clean UI and robust backend architecture.
+               I'm a passionate developer with a strong interest in Artificial Intelligence and Machine Learning, currently pursuing my B.Tech in Information Technology.
             </p>
             <div
               ref={buttonRef}
@@ -137,9 +137,6 @@ export default function HeroSection() {
               </a>
               <a href="https://leetcode.com" target="_blank" rel="noopener noreferrer" aria-label="LeetCode" className="text-muted-foreground transition-colors hover:text-primary">
                 <LeetCodeIcon className="h-6 w-6" />
-              </a>
-              <a href="https://discord.com" target="_blank" rel="noopener noreferrer" aria-label="Discord" className="text-muted-foreground transition-colors hover:text-primary">
-                <DiscordIcon className="h-6 w-6" />
               </a>
             </div>
           </div>

@@ -1,62 +1,68 @@
 export const aboutData = {
-  bio: "I'm Piyush Joshi, a passionate Full Stack Developer with a knack for building robust and scalable web applications. With a strong foundation in computer science and hands-on experience with modern technologies, I thrive on solving complex problems and creating seamless user experiences. My goal is to leverage my skills to contribute to innovative projects and continue growing as a developer.",
-  aspirations: "I aspire to work on cutting-edge technologies, particularly in the realm of distributed systems and machine learning, to build products that make a meaningful impact. I'm also keen on contributing to open-source projects and mentoring aspiring developers."
+  bio: "I'm Piyush Joshi, an aspiring AI/ML Engineer with a strong foundation in computer science from G.L. Bajaj Institute of Technology and Management. I'm passionate about building intelligent systems, solving complex problems, and creating efficient software solutions.",
+  aspirations: "I aspire to leverage my skills in Python, Java, and machine learning frameworks like Scikit-Learn to contribute to innovative AI-driven projects. I am actively seeking opportunities to apply my knowledge and grow as an engineer."
 };
 
 export const experienceData = [
   {
-    role: "Senior Frontend Developer",
-    company: "Tech Solutions Inc.",
-    period: "2020 - Present",
-    description: "Leading the development of a large-scale e-commerce platform, focusing on performance, scalability, and user experience. Mentoring junior developers and driving the adoption of modern frontend technologies.",
+    role: "G.L. Bajaj Institute of Technology and Management",
+    company: "Bachelors of Technology, Information Technology",
+    period: "Aug 2023 - Present",
+    description: "CGPA: 8.8",
   },
   {
-    role: "Full Stack Developer",
-    company: "Innovate Co.",
+    role: "Swami Vivekanand Govt Model School",
+    company: "PCM Intermediate",
+    period: "2020 - 2022",
+    description: "Percentage: 88.5%",
+  },
+  {
+    role: "St. Andrews Convent School",
+    company: "High School",
     period: "2018 - 2020",
-    description: "Developed and maintained several client-facing web applications using the MERN stack. Collaborated with cross-functional teams to deliver high-quality software solutions.",
+    description: "Percentage: 87.5%",
   },
 ];
 
-export const achievementsData = [
-  "Awarded 'Developer of the Year' at Tech Solutions Inc. in 2022.",
-  "Successfully led the migration of a legacy codebase to a modern Next.js architecture, improving performance by 40%.",
-  "Contributed to several popular open-source projects on GitHub.",
-  "Published a technical article on modern web development that was featured in a popular online magazine.",
-];
+export const achievementsData: string[] = [];
 
 export const skillsData = [
   {
-    category: "Frontend",
+    category: "Programming Languages",
     skills: [
-      { name: "React.js", level: 95 },
-      { name: "Next.js", level: 90 },
-      { name: "TypeScript", level: 90 },
-      { name: "JavaScript", level: 95 },
-      { name: "HTML5 & CSS3", level: 98 },
-      { name: "Tailwind CSS", level: 95 },
+      { name: "Python", level: 90 },
+      { name: "Java", level: 85 },
+      { name: "JavaScript", level: 80 },
+      { name: "SQL", level: 80 },
+      { name: "C", level: 70 },
+      { name: "HTML", level: 90 },
     ],
   },
   {
-    category: "Backend",
+    category: "Libraries & Frameworks",
     skills: [
-      { name: "Node.js", level: 90 },
-      { name: "Express.js", level: 85 },
-      { name: "Python", level: 80 },
-      { name: "Firebase", level: 85 },
-      { name: "PostgreSQL", level: 80 },
-      { name: "MongoDB", level: 75 },
+      { name: "Pandas", level: 85 },
+      { name: "NumPy", level: 85 },
+      { name: "Scikit-Learn", level: 80 },
+      { name: "Matplotlib", level: 75 },
+      { name: "React", level: 75 },
     ],
   },
   {
-    category: "Platforms & Tools",
+    category: "Tools & Platforms",
     skills: [
-      { name: "Docker", level: 75 },
-      { name: "AWS", level: 70 },
-      { name: "Google Cloud", level: 65 },
-      { name: "Vercel", level: 90 },
-      { name: "Git & GitHub", level: 95 },
-      { name: "GSAP", level: 80 },
+      { name: "VS Code", level: 95 },
+      { name: "Git", level: 85 },
+      { name: "Jupyter Notebook", level: 90 },
+      { name: "Google Colab", level: 85 },
+      { name: "IntelliJ IDEA", level: 80 },
+    ],
+  },
+  {
+    category: "Databases",
+    skills: [
+      { name: "MySQL", level: 80 },
+      { name: "MongoDB", level: 70 },
     ],
   },
 ];

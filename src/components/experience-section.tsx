@@ -1,23 +1,22 @@
-import { experienceData, achievementsData } from "@/lib/portfolio-data";
-import { Card, CardContent } from "@/components/ui/card";
-import { Briefcase, Award } from "lucide-react";
+import { experienceData } from "@/lib/portfolio-data";
+import { GraduationCap } from "lucide-react";
 
 export default function ExperienceSection() {
   return (
     <section id="experience" className="animate-fade-in-up">
       <div className="container">
         <div className="space-y-4 text-center mb-16">
-          <h2 className="font-headline text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl md:text-6xl">
+          <h2 className="font-headline text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl">
             My Journey
           </h2>
           <p className="mx-auto max-w-[700px] text-lg text-muted-foreground md:text-xl/relaxed">
-            A timeline of my professional experience and key achievements.
+            A timeline of my educational background.
           </p>
         </div>
-        <div className="grid gap-16 md:grid-cols-2">
+        <div className="mx-auto max-w-3xl">
           <div className="space-y-12">
-            <h3 className="flex items-center gap-4 text-3xl font-bold text-primary">
-              <Briefcase size={32} /> Professional Experience
+            <h3 className="flex items-center justify-center gap-4 text-3xl font-bold text-primary">
+              <GraduationCap size={32} /> Education
             </h3>
             <div className="relative space-y-12 pl-8 before:absolute before:inset-y-0 before:w-1 before:bg-border before:left-0 before:bg-gradient-to-b from-transparent via-primary to-transparent">
               {experienceData.map((exp, index) => (
@@ -32,23 +31,6 @@ export default function ExperienceSection() {
                 </div>
               ))}
             </div>
-          </div>
-          <div className="space-y-12">
-            <h3 className="flex items-center gap-4 text-3xl font-bold text-primary">
-              <Award size={32} /> Notable Achievements
-            </h3>
-            <Card className="glass-card animate-zoom-in">
-              <CardContent className="pt-6">
-                <ul className="space-y-6">
-                  {achievementsData.map((ach, index) => (
-                    <li key={index} className="flex items-start gap-4">
-                      <Award className="mt-1 h-6 w-6 shrink-0 text-primary" />
-                      <span className="text-muted-foreground">{ach}</span>
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
           </div>
         </div>
       </div>
