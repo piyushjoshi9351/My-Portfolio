@@ -3,6 +3,28 @@ export const aboutData = {
   aspirations: "I aspire to work on cutting-edge technologies, particularly in the realm of distributed systems and machine learning, to build products that make a meaningful impact. I'm also keen on contributing to open-source projects and mentoring aspiring developers."
 };
 
+export const experienceData = [
+  {
+    role: "Senior Frontend Developer",
+    company: "Tech Solutions Inc.",
+    period: "2020 - Present",
+    description: "Leading the development of a large-scale e-commerce platform, focusing on performance, scalability, and user experience. Mentoring junior developers and driving the adoption of modern frontend technologies.",
+  },
+  {
+    role: "Full Stack Developer",
+    company: "Innovate Co.",
+    period: "2018 - 2020",
+    description: "Developed and maintained several client-facing web applications using the MERN stack. Collaborated with cross-functional teams to deliver high-quality software solutions.",
+  },
+];
+
+export const achievementsData = [
+  "Awarded 'Developer of the Year' at Tech Solutions Inc. in 2022.",
+  "Successfully led the migration of a legacy codebase to a modern Next.js architecture, improving performance by 40%.",
+  "Contributed to several popular open-source projects on GitHub.",
+  "Published a technical article on modern web development that was featured in a popular online magazine.",
+];
+
 export const skillsData = [
   {
     category: "Frontend",

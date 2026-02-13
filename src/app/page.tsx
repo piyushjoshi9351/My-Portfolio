@@ -5,6 +5,8 @@ import SkillsSection from '@/components/skills-section';
 import ProjectsSection from '@/components/projects-section';
 import ContactSection from '@/components/contact-section';
 import Footer from '@/components/footer';
+import ExperienceSection from '@/components/experience-section';
+import BlogSection from '@/components/blog-section';
 
 export default function Home() {
   return (
@@ -13,8 +15,10 @@ export default function Home() {
       <main className="flex-1">
         <HeroSection />
         <AboutSection />
+        <ExperienceSection />
         <SkillsSection />
         <ProjectsSection />
+        <BlogSection />
         <ContactSection />
       </main>
       <Footer />
