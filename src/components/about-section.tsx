@@ -8,9 +8,9 @@ export default function AboutSection() {
   return (
     <section id="about" className="animate-fade-in-up">
       <div className="container">
-        <div className="mx-auto max-w-6xl space-y-12">
+        <div className="mx-auto max-w-6xl space-y-10">
           <div className="space-y-4 text-center">
-            <h2 className="font-headline text-5xl font-extrabold tracking-tight text-foreground sm:text-6xl md:text-7xl">
+            <h2 className="font-headline text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl md:text-6xl">
               About Me
             </h2>
             <p className="text-lg text-muted-foreground md:text-xl/relaxed">
@@ -18,7 +18,7 @@ export default function AboutSection() {
             </p>
           </div>
           <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2">
-            <div className="relative h-96 w-full animate-zoom-in rounded-lg">
+            <div className="relative h-80 w-full animate-zoom-in rounded-lg">
               {aboutImage && (
                 <Image
                   src={aboutImage.imageUrl}

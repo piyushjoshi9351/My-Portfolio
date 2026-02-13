@@ -48,7 +48,8 @@
     background: radial-gradient(ellipse at top, #1e1e2d, #111118);
   }
   section {
-    @apply w-full py-20 md:py-28 lg:py-32;
+    @apply w-full py-16 md:py-24;
+    scroll-margin-top: 80px;
   }
 }
 
