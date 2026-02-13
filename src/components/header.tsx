@@ -22,7 +22,7 @@ export default function Header() {
         "sticky top-0 z-50 w-full animate-fade-in-down border-b border-white/10 bg-background/95 backdrop-blur-sm"
       )}
     >
-      <div className="container flex h-20 items-center">
+      <div className="container flex h-16 items-center">
         <Link href="#hero" className="mr-6 flex items-center space-x-2">
           <span className="font-headline text-2xl font-bold text-foreground">
             My Portfolio
