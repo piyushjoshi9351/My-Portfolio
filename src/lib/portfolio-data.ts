@@ -77,24 +77,3 @@ export const projectsData = [
     imagePlaceholderId: "project-4",
   },
 ];
-
-export const experienceData = [
-  {
-    role: "Senior Full Stack Engineer",
-    company: "Tech Innovations Inc.",
-    period: "Jan 2021 - Present",
-    description: "Led the development of a new microservices-based architecture, improving system scalability by 40%. Mentored junior developers and conducted code reviews to maintain high-quality standards.",
-  },
-  {
-    role: "Software Developer",
-    company: "Digital Solutions Co.",
-    period: "Jun 2018 - Dec 2020",
-    description: "Developed and maintained client-facing web applications using the MERN stack. Collaborated with cross-functional teams to deliver features on schedule.",
-  },
-];
-
-export const achievementsData = [
-    "Won 'Innovator of the Year' award at Tech Innovations Inc. for developing a novel caching strategy.",
-    "Published a technical article on 'Serverless Architecture with Next.js' that was featured on a popular dev blog.",
-    "Certified AWS Solutions Architect - Associate.",
-];

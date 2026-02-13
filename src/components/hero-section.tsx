@@ -49,7 +49,7 @@ export default function HeroSection() {
           >
             {name.split("").map((char, index) => (
               <span key={index} className="inline-block" style={{ opacity: 0 }}>
-                {char === " " ? "\u00A0" : char}
+                {char === " " ? " " : char}
               </span>
             ))}
           </h1>
