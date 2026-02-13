@@ -49,7 +49,7 @@ export default function SkillsSection() {
     <section id="skills" className="animate-fade-in-up">
       <div className="container">
         <div className="space-y-4 text-center mb-16">
-          <h2 className="font-headline text-5xl font-extrabold tracking-tight text-foreground sm:text-6xl md:text-7xl">
+          <h2 className="font-headline text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl md:text-6xl">
             Technical Toolkit
           </h2>
           <p className="mx-auto max-w-[700px] text-lg text-muted-foreground md:text-xl/relaxed">
