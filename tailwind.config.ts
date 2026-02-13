@@ -115,6 +115,8 @@ export default {
         'fade-in-down': 'fade-in-down 0.5s ease-out forwards',
         'fade-in-up': 'fade-in-up 0.5s ease-out forwards',
         'zoom-in': 'zoom-in 0.5s ease-out forwards',
+        'spin-slow': 'spin 10s linear infinite',
+        'spin-slow-reverse': 'spin 10s linear infinite reverse',
       },
     },
   },
