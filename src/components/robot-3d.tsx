@@ -6,7 +6,7 @@ import * as THREE from 'three';
 export default function Robot3D() {
   const containerRef = useRef<HTMLDivElement>(null);
   const mouseRef = useRef({ x: 0, y: 0 });
-  const particlesRef = useRef<THREE.Points | null>(null);
+  const particlesRef = useRef<any>(null);
 
   useEffect(() => {
     if (!containerRef.current) return;

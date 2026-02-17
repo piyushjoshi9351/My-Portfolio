@@ -28,15 +28,26 @@ export default function ContactSection() {
   });
 
   const onSubmit = async (data: ContactFormValues) => {
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    console.log(data);
+    try {
+      const res = await fetch('https://formspree.io/f/xjgewyla', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
 
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for your message! I'll get back to you soon.",
-    });
-    reset();
+      const result = await res.json().catch(() => ({}));
+
+      if (res.ok) {
+        toast({ title: 'Message Sent!', description: "Thank you — I'll get back to you soon." });
+        reset();
+      } else {
+        console.error('Contact API error', result);
+        toast({ title: 'Error', description: result.error || 'Failed to send message.' });
+      }
+    } catch (err) {
+      console.error(err);
+      toast({ title: 'Error', description: 'Network error. Please try again later.' });
+    }
   };
 
   const inputClass =

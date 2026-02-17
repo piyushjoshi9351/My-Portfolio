@@ -1,7 +1,8 @@
-'use client';
+ 'use client';
 
 import { useEffect, useRef, useState } from 'react';
 import { skillsData } from '@/lib/portfolio-data';
+import { supabase, Skill } from '@/lib/supabase';
 
 const SkillBar = ({ name, level }: { name: string; level: number }) => {
   const [width, setWidth] = useState(0);
@@ -45,6 +46,65 @@ const SkillBar = ({ name, level }: { name: string; level: number }) => {
 };
 
 export default function EnhancedSkillsSection() {
+  const [groups, setGroups] = useState<typeof skillsData>(skillsData);
+
+  useEffect(() => {
+    const fetch = async () => {
+      try {
+        const { data, error } = await supabase
+          .from('skills')
+          .select('*')
+          .order('order_index', { ascending: true });
+
+        if (error) throw error;
+
+        if (!data || data.length === 0) {
+          setGroups(skillsData);
+          return;
+        }
+
+        // Keep resume skills as base, then merge/append admin skills.
+        const baseMap: Record<string, { category: string; skills: { name: string; level: number }[] }> = {};
+
+        skillsData.forEach((group) => {
+          baseMap[group.category] = {
+            category: group.category,
+            skills: [...group.skills],
+          };
+        });
+
+        data.forEach((s: Skill) => {
+          const cat = s.category || 'Technical';
+          if (!baseMap[cat]) {
+            baseMap[cat] = { category: cat, skills: [] };
+          }
+
+          const existingIndex = baseMap[cat].skills.findIndex(
+            (skill) => skill.name.toLowerCase() === s.name.toLowerCase()
+          );
+
+          if (existingIndex >= 0) {
+            // If same skill exists, reflect latest admin proficiency.
+            baseMap[cat].skills[existingIndex] = {
+              name: s.name,
+              level: s.proficiency,
+            };
+          } else {
+            // New admin skill -> append as extra.
+            baseMap[cat].skills.push({ name: s.name, level: s.proficiency });
+          }
+        });
+
+        setGroups(Object.values(baseMap));
+      } catch (err) {
+        console.error('Error fetching skills for enhanced section:', err);
+        setGroups(skillsData);
+      }
+    };
+
+    fetch();
+  }, []);
+
   return (
     <section id="skills" className="py-20 px-4">
       <div className="container mx-auto max-w-6xl">
@@ -59,7 +119,7 @@ export default function EnhancedSkillsSection() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            {skillsData.map((category) => (
+            {groups.map((category) => (
               <div key={category.category} className="space-y-6">
                 <h3 className="text-xl font-bold text-foreground border-b border-purple-500/20 pb-3">
                   {category.category}

@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
-import { skillsData } from "@/lib/portfolio-data";
+import { supabase, Skill } from "@/lib/supabase";
 import { Progress } from "@/components/ui/progress";
 
 const SkillBar = ({ skill, level }: { skill: string; level: number }) => {
@@ -45,6 +45,39 @@ const SkillBar = ({ skill, level }: { skill: string; level: number }) => {
 };
 
 export default function SkillsSection() {
+  const [skills, setSkills] = useState<Skill[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchSkills = async () => {
+      try {
+        const { data, error } = await supabase
+          .from('skills')
+          .select('*')
+          .order('order_index', { ascending: true });
+
+        if (error) throw error;
+        setSkills(data || []);
+      } catch (error) {
+        console.error('Error fetching skills:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchSkills();
+  }, []);
+
+  // Group skills by category
+  const groupedSkills = skills.reduce((acc, skill) => {
+    const category = skill.category || 'Technical';
+    if (!acc[category]) {
+      acc[category] = [];
+    }
+    acc[category].push(skill);
+    return acc;
+  }, {} as Record<string, Skill[]>);
+
   return (
     <section id="skills" className="animate-fade-in-up">
       <div className="container">
@@ -57,12 +90,12 @@ export default function SkillsSection() {
           </p>
         </div>
         <div className="mx-auto max-w-4xl space-y-12">
-          {skillsData.map((category) => (
-            <div key={category.category} className="animate-zoom-in">
-              <h3 className="mb-6 text-2xl font-bold text-center text-primary">{category.category}</h3>
+          {Object.entries(groupedSkills).map(([category, categorySkills]) => (
+            <div key={category} className="animate-zoom-in">
+              <h3 className="mb-6 text-2xl font-bold text-center text-primary">{category}</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
-                {category.skills.map((skill) => (
-                  <SkillBar key={skill.name} skill={skill.name} level={skill.level} />
+                {categorySkills.map((skill) => (
+                  <SkillBar key={skill.name} skill={skill.name} level={skill.proficiency} />
                 ))}
               </div>
             </div>

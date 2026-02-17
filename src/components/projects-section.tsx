@@ -1,15 +1,16 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { projectsData } from "@/lib/portfolio-data";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Github, ArrowUpRight } from "lucide-react";
+import { supabase, Project } from "@/lib/supabase";
+import { projectsData as staticProjects } from "@/lib/portfolio-data";
 
-const ProjectCard = ({ project, imageData }: { project: typeof projectsData[0]; imageData?: any }) => {
+const ProjectCard = ({ project, imageData }: { project: Project; imageData?: any }) => {
   const cardRef = React.useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = React.useState(false);
 
@@ -63,7 +64,7 @@ const ProjectCard = ({ project, imageData }: { project: typeof projectsData[0]; 
           <CardDescription className="mt-2 text-muted-foreground">{project.description}</CardDescription>
           <CardContent className="flex-grow pt-6 px-0">
             <div className="flex flex-wrap gap-2">
-              {project.techStack.map((tech) => (
+              {(project.technologies || []).map((tech) => (
                 <Badge key={tech} variant="secondary" className="bg-purple-500/20 text-purple-200 border border-purple-500/30 hover:bg-purple-500/30 transition-colors">
                   {tech}
                 </Badge>
@@ -72,12 +73,12 @@ const ProjectCard = ({ project, imageData }: { project: typeof projectsData[0]; 
           </CardContent>
           <CardFooter className="flex justify-between items-center p-0 pt-6">
             <Button asChild variant="link" className="p-0 h-auto text-primary hover:text-cyan-400 transition-colors">
-              <Link href={project.liveDemoUrl}>
+              <Link href={project.live_demo_url || '#'}>
                 Live Demo <ArrowUpRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
             <Button asChild variant="ghost" size="icon" className="hover:text-purple-400 transition-colors">
-              <Link href={project.githubRepoUrl}>
+              <Link href={project.github_url || '#'}>
                 <Github className="h-5 w-5" />
               </Link>
             </Button>
@@ -90,8 +91,46 @@ const ProjectCard = ({ project, imageData }: { project: typeof projectsData[0]; 
 
 
 export default function ProjectsSection() {
-  const getImageData = (id: string) => {
-    return PlaceHolderImages.find((img) => img.id === id);
+  const [projectsList, setProjectsList] = useState<Project[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        const { data, error } = await supabase
+          .from('projects')
+          .select('*')
+          .order('order_index', { ascending: true });
+
+        if (error) throw error;
+        if (!data || data.length === 0) {
+          const flat = staticProjects.map((p, idx) => ({
+            id: p.id || -(idx + 1),
+            title: p.title,
+            description: p.description,
+            technologies: p.techStack || [],
+            github_url: p.githubRepoUrl || '',
+            live_demo_url: p.liveDemoUrl || '',
+            image_url: undefined,
+            imagePlaceholderId: p.imagePlaceholderId,
+            order_index: idx,
+          }));
+          setProjectsList(flat as Project[]);
+        } else {
+          setProjectsList(data || []);
+        }
+      } catch (error) {
+        console.error('Error fetching projects:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProjects();
+  }, []);
+
+  const getImageData = (id?: string) => {
+    return id ? PlaceHolderImages.find((img) => img.id === id) : undefined;
   };
 
   return (
@@ -106,7 +145,7 @@ export default function ProjectsSection() {
           </p>
         </div>
         <div className="grid gap-12 md:grid-cols-2">
-          {projectsData.map((project, index) => {
+          {projectsList.map((project, index) => {
             const imageData = getImageData(project.imagePlaceholderId);
             return (
               <ProjectCard 

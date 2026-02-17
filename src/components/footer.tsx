@@ -37,10 +37,10 @@ export default function Footer() {
             <div className="space-y-4">
               <h4 className="text-sm font-semibold text-foreground">Resources</h4>
               <nav className="space-y-2">
-                <Link href="#" className="block text-sm text-muted-foreground hover:text-primary transition-colors">GitHub</Link>
-                <Link href="#" className="block text-sm text-muted-foreground hover:text-primary transition-colors">LinkedIn</Link>
-                <Link href="#" className="block text-sm text-muted-foreground hover:text-primary transition-colors">LeetCode</Link>
-                <Link href="#" className="block text-sm text-muted-foreground hover:text-primary transition-colors">Resume</Link>
+                <Link href="https://github.com/piyushjoshi9351" target="_blank" rel="noopener noreferrer" className="block text-sm text-muted-foreground hover:text-primary transition-colors">GitHub</Link>
+                <Link href="https://www.linkedin.com/in/piyush-joshi-18a152277/" target="_blank" rel="noopener noreferrer" className="block text-sm text-muted-foreground hover:text-primary transition-colors">LinkedIn</Link>
+                <Link href="https://leetcode.com/u/Piyush_Joshi93/" target="_blank" rel="noopener noreferrer" className="block text-sm text-muted-foreground hover:text-primary transition-colors">LeetCode</Link>
+                <Link href="/piyush_joshi_cv.pdf" target="_blank" rel="noopener noreferrer" className="block text-sm text-muted-foreground hover:text-primary transition-colors">Resume</Link>
               </nav>
             </div>
 
@@ -71,7 +71,7 @@ export default function Footer() {
 
             <div className="flex items-center gap-6">
               <a 
-                href="#" 
+                href="https://github.com/piyushjoshi9351" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 aria-label="GitHub" 
@@ -80,7 +80,7 @@ export default function Footer() {
                 <Github className="h-5 w-5" />
               </a>
               <a 
-                href="#" 
+                href="https://www.linkedin.com/in/piyush-joshi-18a152277/" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 aria-label="LinkedIn" 
@@ -89,7 +89,7 @@ export default function Footer() {
                 <Linkedin className="h-5 w-5" />
               </a>
               <a 
-                href="#" 
+                href="https://leetcode.com/u/Piyush_Joshi93/" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 aria-label="LeetCode" 
@@ -98,7 +98,7 @@ export default function Footer() {
                 <LeetCodeIcon className="h-5 w-5" />
               </a>
               <a 
-                href="#" 
+                href="https://discord.com/users/piyushjoshi4918" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 aria-label="Discord" 

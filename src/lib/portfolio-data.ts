@@ -1,6 +1,6 @@
 export const aboutData = {
-  bio: "I'm Piyush Joshi, an aspiring AI/ML Engineer with a strong foundation in computer science from G.L. Bajaj Institute of Technology and Management. I'm passionate about building intelligent systems, solving complex problems, and creating efficient software solutions.",
-  aspirations: "I aspire to leverage my skills in Python, Java, and machine learning frameworks like Scikit-Learn to contribute to innovative AI-driven projects. I am actively seeking opportunities to apply my knowledge and grow as an engineer."
+  bio: "I'm Piyush Joshi, an aspiring AI/ML Engineer currently pursuing B.Tech (Information Technology) at G.L. Bajaj Institute of Technology and Management (CGPA: 8.8). I build AI-powered web platforms, accessibility-focused real-time applications, and immersive 3D experiences. I enjoy solving real-world problems by combining ML models with scalable web technologies.",
+  aspirations: "I aim to contribute to impactful AI-driven products, deepen my expertise in machine learning and deployments, and work on end-to-end systems that deliver real value to users. I'm actively looking for opportunities to apply ML, full-stack development, and cloud deployment skills."
 };
 
 export const experienceData = [
@@ -24,7 +24,18 @@ export const experienceData = [
   },
 ];
 
-export const achievementsData: string[] = [];
+export const achievementsData: string[] = [
+  "Artificial Intelligence Beginners Guide - Simplilearn",
+  "AI Essentials: Introduction to AI - Udemy",
+  "What Is Generative AI - LinkedIn Learning",
+  "DSA With Java - Apna College",
+  "Introduction to Deep Learning - Infosys Springboard",
+  "Python Essentials - Cisco Networking Academy",
+  "Excalibur of Techspardha NIT Kurukshetra (Hackathon)",
+  "Cisco Python Essentials Certification",
+  "20+ Microsoft Azure AI Fundamentals Badges",
+  "Participated in National Hackathons (NIT Kurukshetra)"
+];
 
 export const skillsData = [
   {
@@ -32,10 +43,10 @@ export const skillsData = [
     skills: [
       { name: "Python", level: 90 },
       { name: "Java", level: 85 },
-      { name: "JavaScript", level: 80 },
+      { name: "JavaScript", level: 85 },
       { name: "SQL", level: 80 },
       { name: "C", level: 70 },
-      { name: "HTML", level: 90 },
+      { name: "HTML", level: 85 },
     ],
   },
   {
@@ -45,14 +56,14 @@ export const skillsData = [
       { name: "NumPy", level: 85 },
       { name: "Scikit-Learn", level: 80 },
       { name: "Matplotlib", level: 75 },
-      { name: "React", level: 75 },
+      { name: "React", level: 80 },
     ],
   },
   {
     category: "Tools & Platforms",
     skills: [
       { name: "VS Code", level: 95 },
-      { name: "Git", level: 85 },
+      { name: "Git", level: 90 },
       { name: "Jupyter Notebook", level: 90 },
       { name: "Google Colab", level: 85 },
       { name: "IntelliJ IDEA", level: 80 },
@@ -63,45 +74,55 @@ export const skillsData = [
     skills: [
       { name: "MySQL", level: 80 },
       { name: "MongoDB", level: 70 },
+      { name: "SQL", level: 80 },
     ],
   },
 ];
 
 export const projectsData = [
   {
-    id: "project-1",
-    title: "Project Management Tool",
-    description: "A comprehensive web application to streamline project management, featuring task tracking, team collaboration, and progress visualization.",
-    techStack: ["Next.js", "Node.js", "PostgreSQL", "Tailwind CSS"],
+    id: "tourist-companion",
+    title: "Tourist Companion Website",
+    description: "A responsive tourism web application for exploring destinations, booking hotels and activities, with maps, weather updates, and user reviews.",
+    techStack: ["HTML", "CSS", "JavaScript"],
     liveDemoUrl: "#",
-    githubRepoUrl: "#",
+    githubRepoUrl: "https://github.com/piyushjoshi9351/TAOURIST-AND-TRAVEL-WEBSITE",
     imagePlaceholderId: "project-1",
   },
   {
-    id: "project-2",
-    title: "E-commerce Platform",
-    description: "A fully-functional e-commerce site for digital products with secure payments, user authentication, and an admin dashboard.",
-    techStack: ["React.js", "Express.js", "MongoDB", "Stripe API"],
+    id: "signlang-platform",
+    title: "Real-Time Sign Language Video Calling Platform",
+    description: "Accessibility-focused real-time video calling with WebRTC, FastAPI signaling, and AI-powered speech-to-text and sign recognition features.",
+    techStack: ["React", "WebRTC", "FastAPI", "WebSockets", "AI/ML"],
     liveDemoUrl: "#",
     githubRepoUrl: "#",
     imagePlaceholderId: "project-2",
   },
   {
-    id: "project-3",
-    title: "Fitness Tracker App",
-    description: "A mobile-first application to help users track their fitness goals, monitor workout progress, and maintain a healthy lifestyle.",
-    techStack: ["React Native", "Firebase", "Chart.js"],
+    id: "monastery360",
+    title: "Monastery360",
+    description: "An interactive platform showcasing Sikkim's monasteries using 360° virtual tours, interactive maps, and immersive user experiences.",
+    techStack: ["React.js", "Tailwind CSS", "Pannellum.js", "Node.js", "MongoDB"],
     liveDemoUrl: "#",
-    githubRepoUrl: "#",
+    githubRepoUrl: "https://github.com/piyushjoshi9351/sikkim-final-rebuild",
     imagePlaceholderId: "project-3",
   },
   {
-    id: "project-4",
-    title: "Data Analytics Dashboard",
-    description: "A powerful data visualization dashboard that provides real-time insights and analytics for business intelligence.",
-    techStack: ["Python (Flask)", "D3.js", "AWS"],
+    id: "smartdoc-ai",
+    title: "SmartDoc AI",
+    description: "An AI-powered document analysis platform that summarizes documents, enables conversational QA over documents, compares documents, and generates mind maps.",
+    techStack: ["TypeScript", "Docker", "Nix", "AI/ML"],
     liveDemoUrl: "#",
-    githubRepoUrl: "#",
+    githubRepoUrl: "https://github.com/piyushjoshi9351/studio",
     imagePlaceholderId: "project-4",
+  },
+  {
+    id: "immersive-portfolio",
+    title: "Immersive 3D Developer Portfolio",
+    description: "A 3D portfolio built with Next.js, Three.js and GSAP showcasing projects with smooth animations and Firebase integration.",
+    techStack: ["Next.js", "Three.js", "GSAP", "Firebase"],
+    liveDemoUrl: "#",
+    githubRepoUrl: "https://github.com/piyushjoshi9351/My-Portfolio",
+    imagePlaceholderId: "project-1",
   },
 ];

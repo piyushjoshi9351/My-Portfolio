@@ -1,10 +1,25 @@
-import type {Metadata} from 'next';
+import type {Metadata, Viewport} from 'next';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster"
 
 export const metadata: Metadata = {
-  title: 'Piyush Joshi - AI/ML Engineer Portfolio',
-  description: 'Personal portfolio of Piyush Joshi, an aspiring AI/ML Engineer, showcasing skills and projects.',
+  title: 'Piyush Joshi - AI/ML Engineer & Full Stack Developer',
+  description: 'Piyush Joshi\'s professional portfolio. Aspiring AI/ML engineer with expertise in Python, React, and machine learning. Explore my projects and connect with me.',
+  keywords: 'AI, ML, machine learning, full stack developer, portfolio, Piyush Joshi',
+  authors: [{ name: 'Piyush Joshi' }],
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://piyushjoshi.com',
+    siteName: 'Piyush Joshi Portfolio',
+    title: 'Piyush Joshi - AI/ML Engineer & Full Stack Developer',
+    description: 'Professional portfolio showcasing AI/ML projects and full stack development skills',
+  },
+};
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
 };
 
 export default function RootLayout({
