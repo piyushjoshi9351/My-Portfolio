@@ -90,9 +90,14 @@ export default function Header() {
           <NavItems />
         </nav>
         
-        <Button asChild className="hidden md:flex bg-primary text-primary-foreground transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/50">
-            <Link href="#contact">Hire Me</Link>
-        </Button>
+        <div className="hidden items-center gap-3 md:flex">
+          <Button asChild variant="outline" className="transition-all duration-300 hover:scale-105">
+            <Link href="/admin/login">Command Centre</Link>
+          </Button>
+          <Button asChild className="bg-primary text-primary-foreground transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/50">
+              <Link href="#contact">Hire Me</Link>
+          </Button>
+        </div>
 
         {/* Mobile Navigation */}
         <div className="md:hidden">
@@ -106,6 +111,9 @@ export default function Header() {
             <SheetContent side="right" className="glass-card w-[80vw] border-l-0">
               <nav className="mt-16 flex flex-col items-center gap-8">
                 <NavItems isMobile={true} />
+                <Button asChild variant="outline" className="mt-2">
+                  <Link href="/admin/login" onClick={() => setIsMenuOpen(false)}>Command Centre</Link>
+                </Button>
                  <Button asChild className="mt-4">
                     <Link href="#contact" onClick={() => setIsMenuOpen(false)}>Hire Me</Link>
                 </Button>
