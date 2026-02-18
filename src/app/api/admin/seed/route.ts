@@ -15,56 +15,56 @@ export async function POST() {
     await supabase.from('skills').delete().neq('id', 0);
     await supabase.from('experience').delete().neq('id', 0);
     await supabase.from('achievements').delete().neq('id', 0);
+    await supabase.from('about_section').delete().neq('id', 0);
 
-    // Add Projects
+    // Add About Section
+    const aboutSection = {
+      title: 'About Me',
+      description: "I'm Piyush Joshi, an aspiring AI/ML Engineer currently pursuing B.Tech (Information Technology) at G.L. Bajaj Institute of Technology and Management (CGPA: 8.8). I build AI-powered web platforms, accessibility-focused real-time applications, and immersive 3D experiences. I enjoy solving real-world problems by combining ML models with scalable web technologies. I aim to contribute to impactful AI-driven products, deepen my expertise in machine learning and deployments, and work on end-to-end systems that deliver real value to users.",
+    };
+    await supabase.from('about_section').insert(aboutSection);
+
+    // Add Projects (FROM RESUME)
     const projects = [
       {
         title: 'Tourist Companion Website',
-        description: 'A comprehensive travel planning platform that helps users discover destinations, book accommodations, and plan itineraries.',
-        technologies: ['React', 'Node.js', 'MongoDB', 'Tailwind CSS'],
+        description: 'A responsive tourism web application for exploring destinations, booking hotels and activities, with maps, weather updates, and user reviews.',
+        technologies: ['HTML', 'CSS', 'JavaScript'],
         github_url: 'https://github.com/piyushjoshi9351/TAOURIST-AND-TRAVEL-WEBSITE',
         live_demo_url: '#',
         order_index: 0,
       },
       {
-        title: 'Real-time Sign Language Platform',
-        description: 'An AI-powered platform for real-time sign language recognition and translation using computer vision.',
-        technologies: ['Python', 'TensorFlow', 'OpenCV', 'Flask'],
+        title: 'Real-Time Sign Language Video Calling Platform',
+        description: 'Accessibility-focused real-time video calling with WebRTC, FastAPI signaling, and AI-powered speech-to-text and sign recognition features.',
+        technologies: ['React', 'WebRTC', 'FastAPI', 'WebSockets', 'AI/ML'],
         github_url: '#',
         live_demo_url: '#',
         order_index: 1,
       },
       {
         title: 'Monastery360',
-        description: 'Virtual tour application for exploring monasteries with 360-degree immersive experience.',
-        technologies: ['React', 'Three.js', 'WebGL', 'Node.js'],
+        description: 'An interactive platform showcasing Sikkim\'s monasteries using 360° virtual tours, interactive maps, and immersive user experiences.',
+        technologies: ['React.js', 'Tailwind CSS', 'Pannellum.js', 'Node.js', 'MongoDB'],
         github_url: 'https://github.com/piyushjoshi9351/sikkim-final-rebuild',
         live_demo_url: '#',
         order_index: 2,
       },
       {
         title: 'SmartDoc AI',
-        description: 'AI-powered document processing and analysis system for automating document workflows.',
-        technologies: ['React', 'TypeScript', 'Node.js', 'OpenAI API'],
+        description: 'An AI-powered document analysis platform that summarizes documents, enables conversational QA over documents, compares documents, and generates mind maps.',
+        technologies: ['TypeScript', 'Docker', 'Nix', 'AI/ML'],
         github_url: 'https://github.com/piyushjoshi9351/studio',
         live_demo_url: '#',
         order_index: 3,
       },
       {
-        title: 'Portfolio Website',
-        description: 'Personal portfolio showcasing AI/ML projects with dynamic content management and admin panel.',
-        technologies: ['Next.js', 'React', 'TypeScript', 'Supabase', 'Tailwind CSS'],
+        title: 'Immersive 3D Developer Portfolio',
+        description: 'A 3D portfolio built with Next.js, Three.js and GSAP showcasing projects with smooth animations and Firebase integration.',
+        technologies: ['Next.js', 'Three.js', 'GSAP', 'Firebase'],
         github_url: 'https://github.com/piyushjoshi9351/My-Portfolio',
         live_demo_url: '#',
         order_index: 4,
-      },
-      {
-        title: 'Myportfolio admin panel',
-        description: 'Project description',
-        technologies: ['React', 'TypeScript', 'Tailwind'],
-        github_url: 'https://github.com/...',
-        live_demo_url: '#',
-        order_index: 5,
       },
     ];
 
@@ -72,41 +72,64 @@ export async function POST() {
       await supabase.from('projects').insert(project);
     }
 
-    // Add Skills
+    // Add Skills (FROM RESUME)
     const skills = [
-      { name: 'Python', proficiency: 90, category: 'Technical', order_index: 0 },
-      { name: 'Java', proficiency: 85, category: 'Technical', order_index: 1 },
-      { name: 'JavaScript', proficiency: 85, category: 'Technical', order_index: 2 },
-      { name: 'React', proficiency: 80, category: 'Technical', order_index: 3 },
-      { name: 'TypeScript', proficiency: 85, category: 'Technical', order_index: 4 },
-      { name: 'Node.js', proficiency: 80, category: 'Technical', order_index: 5 },
-      { name: 'MongoDB', proficiency: 75, category: 'Technical', order_index: 6 },
-      { name: 'SQL', proficiency: 80, category: 'Technical', order_index: 7 },
-      { name: 'Machine Learning', proficiency: 75, category: 'AI/ML', order_index: 8 },
-      { name: 'TensorFlow', proficiency: 70, category: 'AI/ML', order_index: 9 },
+      // Programming Languages
+      { name: 'Python', proficiency: 90, category: 'Programming Languages', order_index: 0 },
+      { name: 'Java', proficiency: 85, category: 'Programming Languages', order_index: 1 },
+      { name: 'JavaScript', proficiency: 85, category: 'Programming Languages', order_index: 2 },
+      { name: 'SQL', proficiency: 80, category: 'Programming Languages', order_index: 3 },
+      { name: 'C', proficiency: 70, category: 'Programming Languages', order_index: 4 },
+      { name: 'HTML', proficiency: 85, category: 'Programming Languages', order_index: 5 },
+      
+      // Libraries & Frameworks
+      { name: 'Pandas', proficiency: 85, category: 'Libraries & Frameworks', order_index: 6 },
+      { name: 'NumPy', proficiency: 85, category: 'Libraries & Frameworks', order_index: 7 },
+      { name: 'Scikit-Learn', proficiency: 80, category: 'Libraries & Frameworks', order_index: 8 },
+      { name: 'Matplotlib', proficiency: 75, category: 'Libraries & Frameworks', order_index: 9 },
+      { name: 'React', proficiency: 80, category: 'Libraries & Frameworks', order_index: 10 },
+      
+      // Tools & Platforms
+      { name: 'VS Code', proficiency: 95, category: 'Tools & Platforms', order_index: 11 },
+      { name: 'Git', proficiency: 90, category: 'Tools & Platforms', order_index: 12 },
+      { name: 'Jupyter Notebook', proficiency: 90, category: 'Tools & Platforms', order_index: 13 },
+      { name: 'Google Colab', proficiency: 85, category: 'Tools & Platforms', order_index: 14 },
+      { name: 'IntelliJ IDEA', proficiency: 80, category: 'Tools & Platforms', order_index: 15 },
+      
+      // Databases
+      { name: 'MySQL', proficiency: 80, category: 'Databases', order_index: 16 },
+      { name: 'MongoDB', proficiency: 70, category: 'Databases', order_index: 17 },
     ];
 
     for (const skill of skills) {
       await supabase.from('skills').insert(skill);
     }
 
-    // Add Experience
+    // Add Experience (FROM RESUME - EDUCATION)
     const experience = [
       {
-        company: 'Tech Innovation Labs',
-        position: 'Full Stack Developer',
-        duration: 'Jan 2023 - Present',
-        description: 'Developing scalable web applications and implementing AI/ML solutions.',
-        skills_used: ['React', 'Node.js', 'Python', 'MongoDB'],
+        company: 'G.L. Bajaj Institute of Technology and Management',
+        position: 'Bachelors of Technology, Information Technology',
+        duration: 'Aug 2023 - Present',
+        description: 'CGPA: 8.8',
+        skills_used: ['Python', 'Java', 'Data Structures', 'AI/ML'],
         order_index: 0,
       },
       {
-        company: 'StartUp XYZ',
-        position: 'Junior Developer',
-        duration: 'Jun 2022 - Dec 2022',
-        description: 'Built frontend components and contributed to backend APIs.',
-        skills_used: ['React', 'JavaScript', 'REST APIs'],
+        company: 'Swami Vivekanand Govt Model School',
+        position: 'PCM Intermediate',
+        duration: '2020 - 2022',
+        description: 'Percentage: 88.5%',
+        skills_used: ['Physics', 'Chemistry', 'Mathematics'],
         order_index: 1,
+      },
+      {
+        company: 'St. Andrews Convent School',
+        position: 'High School',
+        duration: '2018 - 2020',
+        description: 'Percentage: 87.5%',
+        skills_used: ['Science', 'Mathematics'],
+        order_index: 2,
       },
     ];
 
@@ -114,35 +137,63 @@ export async function POST() {
       await supabase.from('experience').insert(exp);
     }
 
-    // Add Achievements
+    // Add Achievements (FROM RESUME)
     const achievements = [
       {
-        title: 'AI/ML Certification',
-        description: 'Completed advanced machine learning course from leading institution.',
-        date: 'Mar 2024',
+        title: 'Artificial Intelligence Beginners Guide',
+        description: 'Simplilearn - Introduction to AI fundamentals and machine learning concepts',
+        date: '2024',
         icon: 'Award',
         order_index: 0,
       },
       {
-        title: 'Open Source Contributor',
-        description: 'Contributed to multiple open-source projects with 50+ merged PRs.',
-        date: 'Jan 2024',
-        icon: 'Code',
+        title: 'AI Essentials: Introduction to AI',
+        description: 'Udemy - Comprehensive course on AI and its applications',
+        date: '2024',
+        icon: 'Award',
         order_index: 1,
       },
       {
-        title: 'Hackathon Winner',
-        description: 'Won first prize in national-level hackathon for AI application.',
-        date: 'Dec 2023',
-        icon: 'Trophy',
+        title: 'What Is Generative AI',
+        description: 'LinkedIn Learning - Understanding generative AI models and use cases',
+        date: '2024',
+        icon: 'Award',
         order_index: 2,
       },
       {
-        title: 'Tech Speaker',
-        description: 'Delivered talks on AI/ML at 5+ tech conferences.',
-        date: 'Throughout 2023',
-        icon: 'Mic',
+        title: 'DSA With Java',
+        description: 'Apna College - Data Structures and Algorithms mastery',
+        date: '2024',
+        icon: 'Code',
         order_index: 3,
+      },
+      {
+        title: 'Introduction to Deep Learning',
+        description: 'Infosys Springboard - Neural networks and deep learning fundamentals',
+        date: '2024',
+        icon: 'Award',
+        order_index: 4,
+      },
+      {
+        title: 'Python Essentials',
+        description: 'Cisco Networking Academy - Python programming certification',
+        date: '2024',
+        icon: 'Award',
+        order_index: 5,
+      },
+      {
+        title: 'Excalibur of Techspardha NIT Kurukshetra',
+        description: 'Participated in national-level hackathon at NIT Kurukshetra',
+        date: '2023',
+        icon: 'Trophy',
+        order_index: 6,
+      },
+      {
+        title: '20+ Microsoft Azure AI Fundamentals Badges',
+        description: 'Earned multiple badges demonstrating Azure AI expertise',
+        date: '2023-2024',
+        icon: 'Award',
+        order_index: 7,
       },
     ];
 
