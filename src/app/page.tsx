@@ -35,7 +35,7 @@ export default function Home() {
        if (typeof window !== 'undefined') {
         document.body.style.overflow = 'auto';
       }
-    }, 1500); // Reduced preloader time for faster page load
+    }, 3500); // Preloader animation duration
 
     return () => {
       clearTimeout(timer);
